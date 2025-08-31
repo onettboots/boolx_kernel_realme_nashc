@@ -53,7 +53,7 @@ function make_menuconfig {
 }
 function building {
 		echo
-		make -S O=out CC=$HOME/toolchains/boolx-clang/bin/clang KBUILD_BUILD_USER=OnettBoots KBUILD_BUILD_HOST=SuperTermux -j$(grep -c ^processor /proc/cpuinfo)
+		make -s O=out CC=$HOME/toolchains/boolx-clang/bin/clang KBUILD_BUILD_USER=OnettBoots KBUILD_BUILD_HOST=SuperTermux -j$(grep -c ^processor /proc/cpuinfo)
 }
 function make_boot {
 		cp $KERNEL $REPACK_DIR && cp $DTBO $REPACK_DIR/oc
@@ -98,9 +98,9 @@ case "$cchoice" in
 		echo
 		echo "Downloading Boolx-clang for Aarch64 host."
 		wget https://github.com/onettboots/boolx-clang-build/releases/download/Boolx-21/boolx-clang21.tar.gz -P $SAVEHERE
-        cd $SAVEHERE
-        echo "Extracting Boolx Clang 21.0.0 to $HOME/toolchains/:"
-        tar -xf boolx-clang21.tar.gz
+	        cd $SAVEHERE
+        	echo "Extracting Boolx Clang 21.0.0 to $HOME/toolchains/:"
+	        tar -xf boolx-clang21.tar.gz
 		break
 		;;
 	* )
